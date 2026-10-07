@@ -74,6 +74,26 @@ export default function Home() {
     status.hidden = false;
     form.querySelector('button').textContent = 'RÉPONSE ENREGISTRÉE';
   });
+
+  const guestCount = document.getElementById('guestCount');
+  const guestFields = document.getElementById('guestFields');
+  guestCount?.addEventListener('change', () => {
+    const total = parseInt(guestCount.value, 10) || 0;
+    guestFields.innerHTML = '';
+    for (let i = 2; i <= total; i++) {
+      const row = document.createElement('div');
+      row.className = 'guest-row';
+      row.innerHTML =
+        `<span class="guest-tag">INVITÉ(E) ${i}</span>` +
+        `<input type="text" name="invite_${i}_nom" placeholder="Nom et prénom" required>` +
+        `<div class="guest-opts">` +
+        `<label class="radio-line"><input type="radio" name="invite_${i}_presence" value="Oui" required> <span>Présent(e)</span></label>` +
+        `<label class="radio-line"><input type="radio" name="invite_${i}_presence" value="Non"> <span>Absent(e)</span></label>` +
+        `<label class="radio-line"><input type="checkbox" name="invite_${i}_enfant" value="Oui"> <span>Enfant</span></label>` +
+        `</div>`;
+      guestFields.appendChild(row);
+    }
+  });
 })();
   }, []);
 
@@ -213,8 +233,8 @@ export default function Home() {
           <label className="radio-line"><input type="radio" name="presence" value="Non" /> <span>Non, malheureusement</span></label>
         </fieldset>
         <label>
-          <span>Nombre de personnes <b>*</b></span>
-          <select name="invites" required>
+          <span>Nombre de personnes (vous compris) <b>*</b></span>
+          <select name="invites" id="guestCount" required>
             <option value="">Choisir</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -223,6 +243,7 @@ export default function Home() {
             <option value="5+">5 ou plus</option>
           </select>
         </label>
+        <div className="guest-fields" id="guestFields"></div>
         <label>
           <span>Un message pour nous</span>
           <textarea name="message" rows="4"></textarea>

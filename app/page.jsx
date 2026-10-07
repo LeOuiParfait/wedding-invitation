@@ -80,6 +80,28 @@ export default function Home() {
     });
   }
 
+  const guestCount = document.getElementById('guestCount');
+  const guestFields = document.getElementById('guestFields');
+  if (guestCount && guestFields) {
+    guestCount.addEventListener('change', () => {
+      const total = parseInt(guestCount.value, 10) || 0;
+      guestFields.innerHTML = '';
+      for (let i = 2; i <= total; i++) {
+        const row = document.createElement('div');
+        row.className = 'guest-row';
+        row.innerHTML =
+          `<span class="guest-tag">INVITÉ(E) ${i}</span>` +
+          `<input type="text" name="invite_${i}_nom" placeholder="Nom et prénom" required>` +
+          `<div class="guest-opts">` +
+          `<label class="radio-line"><input type="radio" name="invite_${i}_presence" value="Oui" required> <span>Présent(e)</span></label>` +
+          `<label class="radio-line"><input type="radio" name="invite_${i}_presence" value="Non"> <span>Absent(e)</span></label>` +
+          `<label class="radio-line"><input type="checkbox" name="invite_${i}_enfant" value="Oui"> <span>Enfant</span></label>` +
+          `</div>`;
+        guestFields.appendChild(row);
+      }
+    });
+  }
+
   const audio = document.getElementById('weddingAudio');
   const button = document.getElementById('musicButton');
   const widget = document.getElementById('musicWidget');
@@ -264,6 +286,8 @@ export default function Home() {
         <form className="rsvp-form" id="rsvpForm">
           <label><span>Votre nom</span><input type="text" name="nom" placeholder="Nom et prénom" required /></label>
           <label><span>Serez-vous présent(e) ?</span><select name="presence" required><option value="">Choisir</option><option>Oui, avec plaisir</option><option>Non, malheureusement</option></select></label>
+          <label><span>Nombre de personnes (vous compris)</span><select name="invites" id="guestCount" required><option value="">Choisir</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5+">5 ou plus</option></select></label>
+          <div className="guest-fields" id="guestFields"></div>
           <label><span>Un petit mot</span><textarea name="message" rows="3" placeholder="Votre message (facultatif)"></textarea></label>
           <button className="rsvp-button" type="submit">CONFIRMER MA RÉPONSE</button>
         </form>
