@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 
 export default function Home() {
+  const MAP_CEREMONY = 'https://www.google.com/maps/search/?api=1&query=%C3%89glise%20Protestante%20du%20Nazar%C3%A9en%20La%20Vie%20%C3%89ternelle%203%20all%C3%A9e%20Jean%20Image%2077200%20Torcy';
+  const MAP_RECEPTION = 'https://www.google.com/maps/search/?api=1&query=Salle%20Millennium%2015%20Rue%20Ferdinand%20de%20Lesseps%2091350%20Grigny';
   useEffect(() => {
 (() => {
   const revealEls = document.querySelectorAll('.reveal');
@@ -153,6 +155,7 @@ export default function Home() {
           <div className="hero-rule"></div>
           <p className="hero-subtitle">NOUS VOUS INVITONS À CÉLÉBRER AVEC NOUS</p>
           <div className="hero-title">NOTRE HISTOIRE<br/><span>CONTINUE</span></div>
+          <p className="couple-names"><span>Dalisseau</span><em>&</em><span>Nathalie</span></p>
           <p className="hero-copy">Entourés de ceux que nous aimons, nous ouvrirons une nouvelle page de notre histoire et renouvellerons notre engagement.</p>
           <div className="date-lockup" aria-label="7 août 2027">
             <span>AOÛT</span>
@@ -182,7 +185,7 @@ export default function Home() {
           <em>:</em>
           <div><strong id="seconds">00</strong><span>SECONDES</span></div>
         </div>
-        <div className="silver-rings" aria-hidden="true"><span></span><span></span></div>
+        <img className="rings-img" src="/alliances.png" alt="Alliances entrelacées" />
         <p className="countdown-script">jusqu'à notre nouveau « oui »</p>
       </div>
     </section>
@@ -207,7 +210,6 @@ export default function Home() {
           « Ce que Dieu a uni, que l'homme ne le sépare pas. »
           <cite>Marc 10:9</cite>
         </blockquote>
-        <p className="story-ending">Notre histoire continue…<br/><span>et le plus beau reste à écrire.</span></p>
       </div>
     </section>
 
@@ -237,16 +239,10 @@ export default function Home() {
         <div className="timeline">
           <div className="timeline-line" aria-hidden="true"></div>
           <article className="timeline-item">
-            <div className="timeline-icon">♡</div><div className="timeline-dot"></div><div className="event"><h3>CÉRÉMONIE</h3><p>Un moment de foi, de gratitude et de renouvellement de notre engagement.</p></div>
+            <div className="timeline-icon">♡</div><div className="timeline-dot"></div><div className="event"><h3>CÉRÉMONIE · 15H – 17H30</h3><p>Église Protestante du Nazaréen « La Vie Éternelle » — <a className="map-link" href={MAP_CEREMONY} target="_blank" rel="noopener noreferrer">3 allée Jean Image, 77200 Torcy</a></p></div>
           </article>
           <article className="timeline-item">
-            <div className="timeline-icon">◌</div><div className="timeline-dot"></div><div className="event"><h3>PHOTOS & SOUVENIRS</h3><p>Quelques instants pour immortaliser cette journée entourés de nos proches.</p></div>
-          </article>
-          <article className="timeline-item">
-            <div className="timeline-icon">◇</div><div className="timeline-dot"></div><div className="event"><h3>RÉCEPTION</h3><p>Un temps de partage, de convivialité et de célébration.</p></div>
-          </article>
-          <article className="timeline-item">
-            <div className="timeline-icon">✦</div><div className="timeline-dot"></div><div className="event"><h3>SOIRÉE</h3><p>Place à la joie, à la musique et aux souvenirs que nous créerons ensemble.</p></div>
+            <div className="timeline-icon">◈</div><div className="timeline-dot"></div><div className="event"><h3>VIN D'HONNEUR · 19H</h3><p>Salle Millennium — <a className="map-link" href={MAP_RECEPTION} target="_blank" rel="noopener noreferrer">15 Rue Ferdinand de Lesseps, 91350 Grigny</a></p></div>
           </article>
         </div>
       </div>
@@ -268,12 +264,6 @@ export default function Home() {
           <span className="detail-label">THÈME</span>
           <strong>Blanc · Lilas · Argenté</strong>
           <p>Une atmosphère douce, lumineuse et élégante inspirée de notre palette.</p>
-        </div>
-        <div className="detail-divider"></div>
-        <div className="detail-card">
-          <span className="detail-label">LIEU & HORAIRES</span>
-          <strong>À venir</strong>
-          <p>Les informations pratiques seront communiquées avec la confirmation.</p>
         </div>
       </div>
     </section>
@@ -304,7 +294,7 @@ export default function Home() {
         <div className="closing-date"><span>07</span><i></i><span>AOÛT</span></div>
         <p className="closing-year">2027</p>
         <div className="closing-verse">« Ce que Dieu a uni, que l'homme ne le sépare pas. »<br/><span>Marc 10:9</span></div>
-        <p className="closing-script">et le plus beau reste à écrire</p>
+        <p className="closing-script">on vous attend</p>
       </div>
     </section>
   </main>

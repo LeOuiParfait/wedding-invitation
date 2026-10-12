@@ -74,6 +74,13 @@ body.intro-lock{overflow:hidden}
 .intro-overlay.open .intro-open{animation:none}
 @keyframes ctaPulse{0%,100%{transform:scale(1);box-shadow:0 8px 22px rgba(126,86,153,.34)}50%{transform:scale(1.045);box-shadow:0 12px 30px rgba(126,86,153,.5)}}
 
+/* PRÉNOMS + LIENS MAPS */
+.couple-names{display:flex;align-items:center;justify-content:center;gap:14px;margin:24px 0 0}
+.couple-names span{font-size:24px;font-weight:300;letter-spacing:.1em;color:#f4f0f8}
+.couple-names em{font-family:var(--script);font-size:36px;color:var(--lilac);font-style:normal;line-height:.6}
+.map-link{color:var(--lilac-deep);text-decoration:none;border-bottom:1px solid rgba(129,86,159,.35);padding-bottom:1px;font-family:var(--sans);font-size:.8em;letter-spacing:.05em;transition:border-color .2s,color .2s}
+.map-link:hover{color:#5f4076;border-color:#5f4076}
+
 @media(max-width:850px){
   .story-section{grid-template-columns:1fr}.story-photo{min-height:68svh;background-position:center 18%}.story-panel{padding:86px 34px 74px}.story-heading h2{font-size:42px}.story-text p{font-size:16px}.paper-section{background:#fbf9fd}.paper-inner{width:100%;box-shadow:none}.hero-side{display:none}.hero-card{width:100%;box-shadow:none}
 }
