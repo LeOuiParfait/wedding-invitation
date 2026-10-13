@@ -226,6 +226,7 @@ export default function Home() {
           « Ce que Dieu a uni, que l'homme ne le sépare pas. »
           <cite>Marc 10:9</cite>
         </blockquote>
+        <p className="story-ending">Notre histoire continue…<br/><span>et le plus beau reste à écrire.</span></p>
       </div>
     </section>
 
