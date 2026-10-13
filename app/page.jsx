@@ -202,7 +202,7 @@ export default function Home() {
           <div><strong id="seconds">00</strong><span>SECONDES</span></div>
         </div>
         <img className="rings-img" src="/alliances.png" alt="Alliances entrelacées" />
-        <p className="countdown-script">jusqu'à notre nouveau « oui »</p>
+        <p className="countdown-script">jusqu'à notre nouveau <span style={{whiteSpace:'nowrap'}}>« oui »</span></p>
       </div>
     </section>
 
@@ -256,7 +256,7 @@ export default function Home() {
         <div className="timeline">
           <div className="timeline-line" aria-hidden="true"></div>
           <article className="timeline-item">
-            <div className="timeline-icon">♡</div><div className="timeline-dot"></div><div className="event"><h3>CÉRÉMONIE · 15H – 17H30</h3><p>Église Protestante du Nazaréen « La Vie Éternelle » — <a className="map-link" href={MAP_CEREMONY} target="_blank" rel="noopener noreferrer">3 allée Jean Image, 77200 Torcy</a></p></div>
+            <div className="timeline-icon">♡</div><div className="timeline-dot"></div><div className="event"><h3>CÉRÉMONIE · 15H – 17H30</h3><p>Église Protestante du Nazaréen <span style={{whiteSpace:'nowrap'}}>« La Vie Éternelle »</span> — <a className="map-link" href={MAP_CEREMONY} target="_blank" rel="noopener noreferrer">3 allée Jean Image, 77200 Torcy</a></p></div>
           </article>
           <article className="timeline-item">
             <div className="timeline-icon">◈</div><div className="timeline-dot"></div><div className="event"><h3>VIN D'HONNEUR · 19H</h3><p>Salle Millennium — <a className="map-link" href={MAP_RECEPTION} target="_blank" rel="noopener noreferrer">15 Rue Ferdinand de Lesseps, 91350 Grigny</a></p></div>
@@ -292,7 +292,7 @@ export default function Home() {
         <p className="rsvp-copy">Merci de nous confirmer votre présence afin que nous puissions préparer cette journée avec soin.</p>
         <form className="rsvp-form" id="rsvpForm">
           <label><span>Votre nom</span><input type="text" name="nom" placeholder="Nom et prénom" required /></label>
-          <label><span>Serez-vous présent(e) ?</span><select name="presence" required><option value="">Choisir</option><option>Oui, avec plaisir</option><option>Non, malheureusement</option></select></label>
+          <label><span>Serez-vous présent(e) ?</span><select name="presence" required><option value="">Choisir</option><option>Oui, avec plaisir</option><option>Non, malheureusement</option></select></label><fieldset className="rsvp-venues"><legend>À quel moment serez-vous présent(e) ?</legend><label><input type="checkbox" name="ceremonie" value="Oui" /><span>La cérémonie — Église, Torcy</span></label><label><input type="checkbox" name="reception" value="Oui" /><span>La réception — Salle Millennium, Grigny</span></label></fieldset>
           <label><span>Nombre de personnes (vous compris)</span><select name="invites" id="guestCount" required><option value="">Choisir</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5+">5 ou plus</option></select></label>
           <div className="guest-fields" id="guestFields"></div>
           <label><span>Un petit mot</span><textarea name="message" rows="3" placeholder="Votre message (facultatif)"></textarea></label>

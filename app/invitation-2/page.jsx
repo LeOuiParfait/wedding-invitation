@@ -229,7 +229,7 @@ export default function Home() {
 
       <article className="detail-block reveal">
         <h3>La cérémonie</h3>
-        <p><strong>L’Église Protestante du Nazaréen « La Vie Éternelle »</strong><br/>De 15h à 17h30<br/><a className="map-link" href={MAP_CEREMONY} target="_blank" rel="noopener noreferrer">3 allée Jean Image, 77200 Torcy ⌖</a></p>
+        <p><strong>L’Église Protestante du Nazaréen <span style={{whiteSpace:'nowrap'}}>« La Vie Éternelle »</span></strong><br/>De 15h à 17h30<br/><a className="map-link" href={MAP_CEREMONY} target="_blank" rel="noopener noreferrer">3 allée Jean Image, 77200 Torcy ⌖</a></p>
       </article>
 
       <article className="detail-block reveal">
@@ -255,6 +255,11 @@ export default function Home() {
           <legend>Serez-vous présent(e) ? <b>*</b></legend>
           <label className="radio-line"><input type="radio" name="presence" value="Oui" required /> <span>Oui, avec plaisir</span></label>
           <label className="radio-line"><input type="radio" name="presence" value="Non" /> <span>Non, malheureusement</span></label>
+        </fieldset>
+        <fieldset>
+          <legend>À quel moment serez-vous présent(e) ?</legend>
+          <label className="radio-line"><input type="checkbox" name="ceremonie" value="Oui" /> <span>La cérémonie — Église, Torcy</span></label>
+          <label className="radio-line"><input type="checkbox" name="reception" value="Oui" /> <span>La réception — Salle Millennium, Grigny</span></label>
         </fieldset>
         <label>
           <span>Nombre de personnes (vous compris) <b>*</b></span>
@@ -283,7 +288,7 @@ export default function Home() {
         <div className="location-pin">⌖</div>
         <div className="location-item">
           <strong>Cérémonie · 15h – 17h30</strong>
-          <p>Église Protestante du Nazaréen « La Vie Éternelle »</p>
+          <p>Église Protestante du Nazaréen <span style={{whiteSpace:'nowrap'}}>« La Vie Éternelle »</span></p>
           <a className="map-link" href={MAP_CEREMONY} target="_blank" rel="noopener noreferrer">3 allée Jean Image, 77200 Torcy</a>
         </div>
         <div className="location-item">
