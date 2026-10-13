@@ -29,12 +29,14 @@ export default function Home() {
       intro.remove();
       document.body.classList.remove('intro-lock');
       startReveals();
+      startMusic();
     };
     const begin = () => {
       if (started || finished) return;
       started = true;
       intro.classList.add('open');
       startReveals();
+      startMusic();
       setTimeout(() => {
         finished = true;
         document.body.classList.remove('intro-lock');
@@ -104,6 +106,20 @@ export default function Home() {
     });
   }
 
+  function startMusic() {
+    const el = document.getElementById('weddingAudio');
+    if (el && el.paused) {
+      el.play().then(() => {
+        const w = document.getElementById('musicWidget');
+        const ic = document.getElementById('musicIcon');
+        const btn = document.getElementById('musicButton');
+        if (w) w.classList.add('playing');
+        if (ic) ic.textContent = 'Ⅱ';
+        if (btn) btn.setAttribute('aria-label', 'Mettre la musique en pause');
+      }).catch(() => {});
+    }
+  }
+
   const audio = document.getElementById('weddingAudio');
   const button = document.getElementById('musicButton');
   const widget = document.getElementById('musicWidget');
@@ -123,7 +139,7 @@ export default function Home() {
           button.setAttribute('aria-label', 'Lire la musique');
         }
       } catch (error) {
-        alert('Ajoutez votre fichier MP3 dans public/notre-chanson.mp3 pour activer la musique.');
+        alert('Ajoutez votre fichier MP3 dans public/musique.mp3 pour activer la musique.');
       }
     });
   }
@@ -304,7 +320,7 @@ export default function Home() {
     <div className="music-meta"><span className="music-label">MUSIQUE</span><span className="music-track">Notre chanson</span></div>
     <div className="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   </div>
-  <audio id="weddingAudio" src="/notre-chanson.mp3" preload="none" loop />
+  <audio id="weddingAudio" src="/musique.mp3" preload="auto" loop />
     </>
   );
 }

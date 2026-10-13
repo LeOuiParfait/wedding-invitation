@@ -30,12 +30,14 @@ export default function Home() {
       intro.remove();
       document.body.classList.remove('intro-lock');
       startReveals();
+      startMusic();
     };
     const begin = () => {
       if (started || finished) return;
       started = true;
       intro.classList.add('open');
       startReveals();
+      startMusic();
       setTimeout(() => {
         finished = true;
         document.body.classList.remove('intro-lock');
@@ -46,6 +48,29 @@ export default function Home() {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') endIntro(); });
   } else {
     startReveals();
+  }
+
+  function startMusic() {
+    const el = document.getElementById('weddingAudio');
+    if (el && el.paused) {
+      el.play().then(() => {
+        const fab = document.getElementById('musicFab');
+        if (fab) fab.classList.remove('muted');
+      }).catch(() => {});
+    }
+  }
+
+  const musicFab = document.getElementById('musicFab');
+  const musicAudio = document.getElementById('weddingAudio');
+  if (musicFab && musicAudio) {
+    musicFab.addEventListener('click', () => {
+      if (musicAudio.paused) {
+        musicAudio.play().then(() => musicFab.classList.remove('muted')).catch(() => {});
+      } else {
+        musicAudio.pause();
+        musicFab.classList.add('muted');
+      }
+    });
   }
 
   const countdown = document.querySelector('.countdown');
@@ -283,6 +308,8 @@ export default function Home() {
       <a className="back-top" href="#haut">↑</a>
     </section>
   </main>
+  <audio id="weddingAudio" src="/musique.mp3" preload="auto" loop />
+  <button className="music-fab muted" id="musicFab" type="button" aria-label="Activer ou couper la musique">♪</button>
     </div>
   );
 }
