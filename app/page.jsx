@@ -174,8 +174,8 @@ export default function Home() {
           <p className="couple-names"><span>Dalisseau</span><em>&</em><span>Nathalie</span></p>
           <p className="hero-copy">Entourés de ceux que nous aimons, nous ouvrirons une nouvelle page de notre histoire et renouvellerons notre engagement.</p>
           <div className="date-lockup" aria-label="7 août 2027">
-            <span>AOÛT</span>
-            <strong>07</strong>
+            <span>07</span>
+            <strong>AOÛT</strong>
             <span>2027</span>
           </div>
           <p className="hero-bottom">SAMEDI · 7 AOÛT 2027</p>
