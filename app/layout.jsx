@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Notre histoire continue — 7 août 2027',
-  description: "Invitation de mariage — une histoire d'amour, de foi et de lumière. Rendez-vous le 7 août 2027.",
+  title: 'Notre histoire continue - le 7 août 2027',
+  description: 'Invitation de mariage - Un amour précieux, un rêve partagé, une histoire à célébrer.',
 };
 
 export const viewport = {
