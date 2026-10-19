@@ -113,6 +113,9 @@ export default function Home() {
       document.getElementById('rsvpModal').hidden = false;
       document.body.style.overflow = 'hidden';
       form.querySelector('button').textContent = 'RÉPONSE ENREGISTRÉE';
+      form.reset();
+      const gf = document.getElementById('guestFields');
+      if (gf) gf.innerHTML = '';
     });
   }
   const rsvpModal = document.getElementById('rsvpModal');
