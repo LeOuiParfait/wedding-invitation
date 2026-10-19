@@ -72,7 +72,7 @@ export default function Home() {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  const RSVP_WEBHOOK = 'https://script.google.com/macros/s/AKfycbz2BKd6w9haHDhUcnSES6cNxGFKgiqpZlDI2gCebaP8TJM9-n28rk26fXkl_8EZ6J2mmA/exec'; // URL de ton Apps Script (https://script.google.com/macros/s/.../exec)
+  const RSVP_WEBHOOK = 'https://script.google.com/a/macros/leouiparfait.com/s/AKfycbyJrsNm8xLVsnhiUW0mVrOcwVMvFRm_zJwNYmuwFrh0V80YRGgQGNORACnrlY1Rvr0k/exec'; // URL de ton Apps Script (https://script.google.com/macros/s/.../exec)
   const form = document.getElementById('rsvpForm');
   const status = document.getElementById('formStatus');
   if (form) {
