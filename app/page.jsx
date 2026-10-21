@@ -72,7 +72,7 @@ export default function Home() {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  const RSVP_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzhL6R6JsNeKDer7PcHfYsUV4sYMmCFlN2Ky9JpOCbOFdpY8lZ429TqAfUgoDGigApP/exec'; // URL Apps Script
+  const RSVP_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzdzEqeS_XKUQzyWwgH4yPNkTPv3QOMq52YAUC-qmmcLBQYqtsXVMgxoMFe-ouiGI6x/exec'; // URL Apps Script
   const form = document.getElementById('rsvpForm');
   const status = document.getElementById('formStatus');
   if (form) {
