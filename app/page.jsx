@@ -72,7 +72,7 @@ export default function Home() {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  const RSVP_WEBHOOK = 'https://script.google.com/macros/s/AKfycbyJrsNm8xLVsnhiUW0mVrOcwVMvFRm_zJwNYmuwFrh0V80YRGgQGNORACnrlY1Rvr0k/exec'; // URL de ton Apps Script (https://script.google.com/macros/s/.../exec)
+  const RSVP_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzhL6R6JsNeKDer7PcHfYsUV4sYMmCFlN2Ky9JpOCbOFdpY8lZ429TqAfUgoDGigApP/exec'; // URL Apps Script
   const form = document.getElementById('rsvpForm');
   const status = document.getElementById('formStatus');
   if (form) {
@@ -81,21 +81,27 @@ export default function Home() {
       const data = Object.fromEntries(new FormData(form).entries());
       localStorage.setItem('reponseInvitation07082027', JSON.stringify(data));
       if (RSVP_WEBHOOK) {
-        const mail = {
-          'Nom et prénom': data.nom,
-          'Présence': data.presence,
-          'Email': data.email,
-          'Cérémonie — Église, Torcy': data.ceremonie ? 'Oui' : 'Non',
-          'Réception — Salle Millennium, Grigny': data.reception ? 'Oui' : 'Non',
-          "Nombre de personnes": data.invites,
-        };
+        const accompagnants = {};
         Object.keys(data).forEach((k) => {
           const m = k.match(/^invite_(\d+)_(nom|presence|enfant)$/);
           if (!m) return;
-          const label = { nom: 'Nom', presence: 'Présence', enfant: 'Enfant' }[m[2]];
-          mail['Invité ' + m[1] + ' — ' + label] = data[k];
+          accompagnants[m[1]] = accompagnants[m[1]] || {};
+          accompagnants[m[1]][m[2]] = data[k];
         });
-        if (data.message) mail['Petit mot'] = data.message;
+        const accompagnantsTxt = Object.keys(accompagnants).map((i) => {
+          const g = accompagnants[i];
+          return '• ' + (g.nom || 'Invité ' + i) + ' — ' + (g.presence === 'Oui' ? 'Présent(e)' : 'Absent(e)') + (g.enfant ? ' · enfant' : '');
+        }).join('\n');
+        const mail = {
+          nom: data.nom,
+          email: data.email,
+          presence: data.presence,
+          ceremonie: data.ceremonie ? 'Oui' : 'Non',
+          reception: data.reception ? 'Oui' : 'Non',
+          nb_personnes: data.invites,
+          accompagnants: accompagnantsTxt || '—',
+          message: data.message || '',
+        };
         try {
           await fetch(RSVP_WEBHOOK, {
             method: 'POST',
